@@ -1,6 +1,6 @@
 {
-  "name": "ooth-lib",
-  "version": "1.0.0",
+  "name": "ooth",
+  "version": "1.2.1",
   "description": "",
   "main": "index.js",
   "directories": {
