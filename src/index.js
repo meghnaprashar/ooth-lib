@@ -253,9 +253,17 @@ class Ooth {
                 }))
             }
 
+            let pingTimeout = setTimeout(function heartBeat () {
+                console.log('Pinging Hearbeat called >>>>', req.session.id)
+  
+                ws.send(JSON.stringify({ msg: 'PING' }))
+  
+                pingTimeout = setTimeout(heartBeat, 30000)
+              }, 30000)
             ws.on('close', () => {
-                this.connections[req.session.id] = this.connections[req.session.id].filter(wss => ws !== wss)
-            })
+                this.connections[req.session.id] = this.connections[req.session.id].filter(wss => ws !== wss);
+                clearTimeout(pingTimeout)
+            });
         })
     }
 
