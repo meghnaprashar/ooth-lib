@@ -254,7 +254,6 @@ class Ooth {
             }
 
             let pingTimeout = setTimeout(function heartBeat () {
-                console.log('Pinging Hearbeat called >>>>', req.session.id)
   
                 ws.send(JSON.stringify({ msg: 'PING' }))
   
